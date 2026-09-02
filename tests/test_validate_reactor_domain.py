@@ -75,11 +75,14 @@ def test_missing_manifest_is_one_finding(tmp_path: Path) -> None:
         ({"device_family": 7}, "device_family:"),
         ({"license": "MIT"}, "license:"),
         ({"evidence_maturity": "finished"}, "evidence_maturity:"),
-        ({"capabilities": [{"name": "x"}]}, "capabilities[0]"),
         (
-            {"evidence_maturity": "architecture_only"},
-            "must be [] at architecture_only",
+            {
+                "evidence_maturity": "computational_prototype",
+                "capabilities": [{"name": "x"}],
+            },
+            "capabilities[0]",
         ),
+        ({"capabilities": [{"name": "x"}]}, "must be [] at architecture_only"),
         ({"claims": ["fast"]}, "claims:"),
         ({"non_claims": []}, "non_claims:"),
         ({"owned_domains": []}, "owned_domains:"),
@@ -92,7 +95,7 @@ def test_missing_manifest_is_one_finding(tmp_path: Path) -> None:
         ({"configurations": []}, "configurations:"),
         ({"configurations": ["Bad-Name"]}, "invalid identifier"),
         (
-            {"configurations": ["scpn.reactor_systems:muon_catalysed_fusion", "scpn.reactor_systems:muon_catalysed_fusion"]},
+            {"configurations": ["group.part:name_one", "group.part:name_one"]},
             "must be unique",
         ),
         (
@@ -328,6 +331,7 @@ def test_architecture_only_with_empty_inventory_is_valid(tmp_path: Path) -> None
 def test_valid_contract_version_is_accepted(tmp_path: Path) -> None:
     """A non-empty contract version on a capability item is valid."""
     manifest = mutated(
+        evidence_maturity="computational_prototype",
         capabilities=[
             {
                 "identifier": "device_configuration_model",
@@ -335,7 +339,7 @@ def test_valid_contract_version_is_accepted(tmp_path: Path) -> None:
                 "evidence_pointer": "VALIDATION.md#x",
                 "contract_version": "1.0.0",
             }
-        ]
+        ],
     )
     path = write_manifest_with_evidence(tmp_path, manifest)
     assert validate_manifest(path, None) == []
@@ -464,10 +468,9 @@ def test_map_cross_check_accepts_the_pending_registry_extension(
             {
                 "planned_repositories": [manifest["project"]],
                 "existing_repositories": [],
-                "configuration_assignments": {
-                    identifier: manifest["project"]
-                    for identifier in manifest["configurations"]
-                },
+                "configuration_assignments": dict.fromkeys(
+                    manifest["configurations"], manifest["project"]
+                ),
                 "source_registry": {"version": "1.0.0", "digest_sha256": "0" * 64},
                 "pending_registry_extension": {
                     "version": manifest["spo_registry"]["version"],
