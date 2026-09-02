@@ -1,0 +1,55 @@
+{
+  "authority": {
+    "allowed_action_authority": "none",
+    "control_intent_contract": null,
+    "spo_actionable": false,
+    "spo_semantic_mode": "review_only"
+  },
+  "capabilities": [],
+  "configurations": [
+    "scpn.reactor_systems:muon_catalysed_fusion"
+  ],
+  "confinement_family": "extension",
+  "control_adapter": {
+    "contract_version": "0.1.0-spec",
+    "identifier": "scpn-muon-fusion-core.control-adapter"
+  },
+  "device_family": "muon_catalysed_fusion",
+  "evidence_maturity": "architecture_only",
+  "lifecycle": {
+    "evidence_pointer": null,
+    "reason": "architecture_only: no implemented capability exists to federate",
+    "state": "not_federated"
+  },
+  "machine_protection": {
+    "availability": "not_assessed",
+    "final_veto_owner": "independent_machine_protection"
+  },
+  "non_claims": [
+    "not machine-ready",
+    "not safety-certified",
+    "not autonomous-plant-ready",
+    "not commercially reactor-ready",
+    "no implemented solver, controller, benchmark, dataset, or deployable artefact",
+    "no experimental correlation",
+    "no energy-gain statement is made or implied; with the published sticking probability and cycle count the catalysed yield per muon is below the muon's production cost, and the repository carries no path around that fact"
+  ],
+  "project": "SCPN-MUON-FUSION-CORE",
+  "research_group": {
+    "coordination_identity": "SCPN-REACTOR-SYSTEMS",
+    "display_name": "SCPN Reactor Systems Research Group"
+  },
+  "schema": "scpn.studio-portfolio-descriptor.v1",
+  "schema_version": "1.1.0",
+  "source": {
+    "manifest_path": "reactor-domain.json",
+    "manifest_schema": "scpn.reactor-domain.v1",
+    "manifest_schema_version": "1.0.0",
+    "manifest_sha256": "15033775f80cbc130cc2c69c53b7ca93565b62c8fe533bec8773c076965f6a4f",
+    "repository": "SCPN-MUON-FUSION-CORE"
+  },
+  "spo_registry": {
+    "digest_sha256": "6741f25892d81b24aa621ee4f56b5e785e8323eca6ccf9d9009ce2c8e53f4912",
+    "version": "1.1.0"
+  }
+}
