@@ -12,6 +12,13 @@ SCPN Muon Fusion Core — CHANGELOG
 
 ## [Unreleased]
 
+### Changed
+
+- Install every CI dependency from hash-locked requirement sets with
+  `--require-hashes`: the development toolchain, the audit and inventory
+  tools. `make lock` regenerates the sets. Toolchain, action and interpreter
+  pins move to their newest releases.
+
 ### Added
 
 - Repository established as the architecture-only Tier-0 device-family
