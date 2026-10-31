@@ -33,6 +33,10 @@ SCPN Muon Fusion Core — CHANGELOG
 
 ### Added
 
+- README badge block for the evidence this repository has earned: the CI,
+  CodeQL, pre-commit, security-audit and docs workflows on `main`, the
+  AGPL-3.0-or-later licence, the commercial licence route and GitHub
+  Sponsors, bound by a contract test; unearned services stay forbidden.
 - Repository established as the architecture-only Tier-0 device-family
   repository for muon-catalysed fusion research (ADR 0001): the domain
   manifest pinning the prepared reactor registry release `1.1.0` with the
