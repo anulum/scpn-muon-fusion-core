@@ -110,9 +110,9 @@ Every gate currently active in this repository is listed in
 
 ```bash
 make lint        # ruff check + ruff format --check
-make typecheck   # mypy --strict tools tests
+make typecheck   # mypy --strict tools tests conftest.py
 make test        # pytest with 100 % statement and branch coverage on tools/
-make validate    # domain manifest, descriptor, and inventory checks
+make validate    # domain manifest, descriptor, inventory, and workflow checks
 make preflight   # the full fail-closed gate sequence
 ```
 

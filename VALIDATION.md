@@ -21,7 +21,7 @@ its architecture-only state.
 |---|---|---|
 | Lint | `ruff check .` | all Python under `tools/` and `tests/` |
 | Format | `ruff format --check .` | same scope |
-| Typing | `mypy --strict tools tests` | zero errors, strict mode |
+| Typing | `mypy --strict tools tests conftest.py` | zero errors, strict mode |
 | Tests + coverage | `pytest -q --cov=tools --cov-branch --cov-fail-under=100` | 100 % statement and branch coverage of `tools/` |
 | Domain manifest | `python3 tools/validate_reactor_domain.py reactor-domain.json` | schema, registry version/digest (the prepared release `1.1.0` against the family map's pending block), exact configuration set including the namespaced extension identifier, empty capability/claim inventories, safety boundary |
 | Studio descriptor | `python3 tools/derive_studio_descriptor.py --check` | committed descriptor byte-identical to a fresh derivation |
