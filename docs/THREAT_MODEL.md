@@ -25,7 +25,7 @@ to this family and is listed first.
 | `studio/portfolio-descriptor.json` | what the portfolio layer would ingest; must never overstate maturity |
 | `capability-inventory.json` | public truthfulness of "zero implemented capabilities" |
 | `docs/CONTROL_ADAPTER_SPECIFICATION.md` | safety-relevant contract text (no-direct-actuation semantics; tritium, cryogenic and radiation envelope) |
-| Workflow definitions | future execution with hosted credentials |
+| Workflow definitions | execution on hosted runners on every push and pull request |
 | Licensing/provenance metadata | legal integrity of the repository |
 
 ## Trust boundaries and actors
@@ -35,8 +35,9 @@ to this family and is listed first.
 - **Downstream consumer** (SPO, CONTROL, STUDIO tooling): trusts the
   manifest only as far as its digest and validator verdicts; must not be
   able to read more authority out of the metadata than the manifest grants.
-- **Hosted CI** (future, after a remote exists): untrusted-by-default
-  execution environment; workflows therefore carry empty top-level
+- **Hosted CI** (GitHub Actions on the public repository, on every push
+  and pull request): untrusted-by-default execution environment;
+  workflows therefore carry empty top-level
   permissions, per-job least privilege, pinned action commit objects, and
   bounded timeouts.
 - **Supply chain**: the hash-locked Python sets (`requirements-*.txt`,

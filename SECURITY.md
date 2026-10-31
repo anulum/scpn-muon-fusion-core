@@ -19,12 +19,15 @@ SCPN Muon Fusion Core — SECURITY
 
 The repository is `architecture_only`: its executable surface is limited to
 the validation tooling under `tools/` (manifest validator, descriptor
-derivation, inventory generation, preflight orchestration). There is no
+derivation, inventory generation, workflow guard, commit-message trailer
+guard, preflight orchestration). There is no
 network service, no daemon, no solver, no controller, and no hardware path.
 
 ## Reporting a vulnerability
 
-Report privately to **protoscience@anulum.li**. Do not open public reports.
+Report privately, either through GitHub private vulnerability reporting
+(enabled on this repository) or to **protoscience@anulum.li**. Do not open
+public reports.
 Include the affected file, a reproduction, and the impact you see. You will
 receive an acknowledgement, and coordinated disclosure will be agreed before
 any public statement. Good-faith research within this scope is welcome.
